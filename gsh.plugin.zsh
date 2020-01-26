@@ -31,16 +31,13 @@ function gadd() {
     git add ${*:---all}
 }
 
-function gebase() {
-    git rebase ${*:---interactive}
-}
-
 alias gush='git push'
 alias gorcepush='git push --force-with-lease'
 alias gull='git pull'
 alias giff='git diff'
 alias gash='git stash'
 alias gerge='git merge'
+alias gebase='git rebase'
 alias getch='git fetch'
 alias granch='git branch'
 alias ginit='git init'
@@ -53,24 +50,4 @@ alias gevert='git revert'
 alias glame='git blame'
 alias geset='git reset'
 alias gemote='git remote'
-
-compdef _git-push gush
-compdef _git-push gorcepush
-compdef _git-pull gull
-compdef _git-add gadd
-compdef _git-diff giff
-compdef _git-stash gash
-compdef _git-merge gerge
-compdef _git-fetch getch
-compdef _git-branch granch
-compdef _git-init ginit
-compdef _git-rebase gebase
-compdef _git-commit gommit
-compdef _git-commit gamend
-compdef _git-log gog
-compdef _git-status gatus
-compdef _git-checkout geckout
-compdef _git-revert gevert
-compdef _git-blame glame
-compdef _git-reset geset
-compdef _git-remote gemote
+alias glean='git clean'
