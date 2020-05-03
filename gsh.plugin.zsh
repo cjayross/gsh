@@ -11,11 +11,6 @@ function glone {
     repo=$1
     shift
 
-    if (( $# )); then
-        echo "$program: trailing arguments"
-        return 1
-    fi
-
     (( $#host )) || host=('' 'github.com')
 
     if (( $#https )); then
@@ -25,6 +20,30 @@ function glone {
     fi
 
     git clone $url$repo $*
+}
+
+function godule {
+    local host https url repo program='gsh'
+
+    zparseopts -D -E -host:=host -https=https
+
+    if (( ! $# )); then
+        echo "$program: missing repo"
+        return 1
+    fi
+
+    repo=$1
+    shift
+
+    (( $#host )) || host=('' 'github.com')
+
+    if (( $#https )); then
+        url="https://$host[2]/"
+    else
+        url="git@$host[2]:"
+    fi
+
+    git submodule add $url$repo $*
 }
 
 function gadd() {
@@ -52,3 +71,4 @@ alias geset='git reset'
 alias gemote='git remote'
 alias glean='git clean'
 alias gwitch='git switch'
+alias gubmodule='git submodule'
