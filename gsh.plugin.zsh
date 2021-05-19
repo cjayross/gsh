@@ -22,30 +22,6 @@ function glone {
     git clone $url$repo $*
 }
 
-function godule {
-    local host https url repo program='gsh'
-
-    zparseopts -D -E -host:=host -https=https
-
-    if (( ! $# )); then
-        echo "$program: missing repo"
-        return 1
-    fi
-
-    repo=$1
-    shift
-
-    (( $#host )) || host=('' 'github.com')
-
-    if (( $#https )); then
-        url="https://$host[2]/"
-    else
-        url="git@$host[2]:"
-    fi
-
-    git submodule add $url$repo $*
-}
-
 function gadd() {
     git add ${*:---all}
 }
@@ -60,7 +36,7 @@ alias gebase='git rebase'
 alias getch='git fetch'
 alias granch='git branch'
 alias ginit='git init'
-alias gommit='git commit -am'
+alias gommit='git commit'
 alias gamend='git commit --amend'
 alias gog='git log --abbrev-commit --pretty=oneline'
 alias gatus='git status'
@@ -72,3 +48,8 @@ alias gemote='git remote'
 alias glean='git clean'
 alias gwitch='git switch'
 alias gubmodule='git submodule'
+alias gag='git tag'
+alias gmv='git mv'
+alias grm='git rm'
+alias gisect='git bisect'
+alias gow='git show'
