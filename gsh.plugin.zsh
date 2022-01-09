@@ -1,31 +1,8 @@
-function glone {
-    local host https url repo program='gsh'
-
-    zparseopts -D -E -host:=host -https=https
-
-    if (( ! $# )); then
-        echo "$program: missing repo"
-        return 1
-    fi
-
-    repo=$1
-    shift
-
-    (( $#host )) || host=('' 'github.com')
-
-    if (( $#https )); then
-        url="https://$host[2]/"
-    else
-        url="git@$host[2]:"
-    fi
-
-    git clone $url$repo $*
-}
-
 function gadd() {
     git add ${*:---all}
 }
 
+alias glone='git clone'
 alias gush='git push'
 alias gorcepush='git push --force-with-lease'
 alias gull='git pull'
