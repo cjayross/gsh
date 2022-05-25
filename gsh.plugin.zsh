@@ -35,3 +35,5 @@ alias gestore='git restore'
 alias gerrypick='git cherry-pick'
 alias geflog='git reflog'
 alias gwhatchanged='git whatchanged'
+
+compdef _git-add gadd
