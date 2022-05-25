@@ -1,7 +1,4 @@
-function gadd() {
-    git add ${*:---all}
-}
-
+alias gadd='git add'
 alias glone='git clone'
 alias gush='git push'
 alias gorcepush='git push --force-with-lease'
@@ -35,5 +32,3 @@ alias gestore='git restore'
 alias gerrypick='git cherry-pick'
 alias geflog='git reflog'
 alias gwhatchanged='git whatchanged'
-
-compdef _git-add gadd
