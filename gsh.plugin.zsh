@@ -32,3 +32,7 @@ alias gestore='git restore'
 alias gerrypick='git cherry-pick'
 alias geflog='git reflog'
 alias gwhatchanged='git whatchanged'
+
+function gignore() {
+    [[ -n $1 ]] && wget --quiet --output-document .gitignore https://raw.githubusercontent.com/github/gitignore/main/$1.gitignore
+}
